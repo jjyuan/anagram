@@ -1,7 +1,7 @@
 import sys                  # System library.
 
 dictionary = list()         # Initializes an empty list.
-sorted_dictionary = list()  # Initializes another empty list.
+sorted_dict = list()  # Initializes another empty list.
 
 def setup(inputs):
     """
@@ -19,7 +19,7 @@ def setup(inputs):
     for d in dictionary:                            # Loop through each word of the newly sorted dictionary list.
         l = list(d.lower())                         # Converts the word into a list, where each character is now an element.
         l.sort()                                    # Sorts that list.
-        sorted_dictionary.append((d, ''.join(l)))   # Appends a tuple (original word, sorted word) to the second list.
+        sorted_dict.append((d, ''.join(l)))         # Appends a tuple (original word, sorted word) to the second list.
 
 def run():
     """
@@ -31,7 +31,7 @@ def run():
     result = ""                                     # Initializing an empty string.
     l1 = list(response)                             # Memoization feature.
     l1.sort()                                       # Memoization feature^.
-    for orig_word, sorted_word in sorted_dictionary:# Looping through the tuples of (original word, sorted word).
+    for orig_word, sorted_word in sorted_dict:      # Looping through the tuples of (original word, sorted word).
         l2 = list(sorted_word)                      # Converts sorted_word into a list.
         if l1 == l2:                                # Checks if original word is an anagram of the input word.
             result += orig_word + " "               # If so, append that word to to the result string.
@@ -50,7 +50,7 @@ else:
     print("not enough arguments")   # Something went wrong!
 
                                                                                                        
-                                                                                                      
+"""                                                                                          
 TTTTTTTTTTTTTTTTTTTTTTThhhhhhh                                                kkkkkkkk                
 T:::::::::::::::::::::Th:::::h                                                k::::::k                
 T:::::::::::::::::::::Th:::::h                                                k::::::k                
@@ -89,5 +89,6 @@ yyyyyyy           yyyyyyy ooooooooooo   uuuuuu    uuuuuu  !:::!
     y:::::y                                                                                           
    y:::::y                                                                                            
   yyyyyyy                                                                                             
-                                                                                                      
-                                                                                                      
+                                                                                                                                                                                                       
+
+"""
