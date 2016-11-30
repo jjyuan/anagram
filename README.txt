@@ -1,7 +1,9 @@
 Answers:
-1. The complete runtime for offline step is: O(N + NlogN + NMlogM) where N is the number of words in the dictionary, and M is the length of the longest word in the dictionary. This simplifies to O(N*MlogM) if the dictionary includes long words, otherwise it's O(NlogN). 
-The runtime for the online step is: O(N*M*MlogM) where N is the number of words in the dictionary and M is the length of the longest word(s). 
+1. The complete runtime for offline step is: O(N + NlogN + N*M*MlogM) where N is the number of words in the dictionary, and M is the length of the longest word in the dictionary. This simplifies to O(N*M*MlogM) if the dictionary includes long words, otherwise it's O(NlogN). 
+The runtime for the online step is: O(M*logM + N*M) where N is the number of words in the dictionary and M is the length of the current input word. The runtime would be O(N*M).
 2. If N is the number of words in the dictionary, my program consumes O(N + N), or O(N).
 3. With this little memory, available, we'll have to compromise runtime significantly. We can use read in the dictionary as an iterator and as we process each word and its anagrams, we'll be iterating through that dictionary iterator. 
 
-*More explanation to runtime is included in comments in my code.
+Explanation of my program:
+I have two lists which represent the dictionaries. The first list stores each original word, and is sorted using Python's sort() function. The second list is a list which contains tuples of the format (original word, sorted original word). The reason for including sorted original word is because it helps eliminate a step during the online process, when I'm checking if two words are anagrams. This is an optimization I added in later on.
+In the online step, I take the user input and check if it's sorted format matches the sorted format of all the other dictionary words. If so, I append it to a string to print out. I originally had a method to check if two strings were anagrams, but I removed it because it would resort the same input word for each word in the dictionary. I implement a quick memoization feature in my run() method so that the input word doesn't get sorted each time.
